@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Header() {
+  const cartTotalQuantity = useSelector((state) => state.cart.totalQuantity);
   return (
     <header>
       <div className="navbar">
@@ -42,7 +44,7 @@ function Header() {
         <Link to="/checkout" style={{textDecoration: 'none', color: 'inherit'}}>
           <div className="nav-cart border">
             <i className="fa-solid fa-cart-shopping"></i>
-            Cart
+            Cart <span className="cart-count" style={{color: '#f08804', fontWeight: 'bold', marginLeft: '4px', fontSize: '1rem'}}>{cartTotalQuantity}</span>
           </div>
         </Link>
       </div>

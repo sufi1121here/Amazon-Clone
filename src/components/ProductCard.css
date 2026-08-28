@@ -1,0 +1,31 @@
+.add-to-cart-btn {
+  background-color: #f0c14b;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #f4d078;
+}
+
+.product-price {
+  font-weight: 700;
+  margin-top: 5px;
+  color: #0F1111;
+}
+
+.product-rating {
+  margin-top: 5px;
+  font-size: 0.8rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
