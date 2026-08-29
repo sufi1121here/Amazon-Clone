@@ -1,9 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { auth } from '../firebase';
+import { signOut } from 'firebase/auth';
 
 function Header() {
   const cartTotalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const user = useSelector((state) => state.user.user);
+
+  const handleAuthentication = () => {
+    if (user) {
+      signOut(auth);
+    }
+  };
   return (
     <header>
       <div className="navbar">
@@ -29,10 +38,10 @@ function Header() {
           </div>
         </div>
 
-        <Link to="/login" style={{textDecoration: 'none', color: 'inherit'}}>
-          <div className="nav-signin border">
-            <p><span>Hello, sign in</span></p>
-            <p className="nav-sec">Account & Lists</p>
+        <Link to={!user && "/login"} style={{textDecoration: 'none', color: 'inherit'}}>
+          <div onClick={handleAuthentication} className="nav-signin border">
+            <p><span>Hello, {user ? user.displayName : 'sign in'}</span></p>
+            <p className="nav-sec">{user ? 'Sign Out' : 'Account & Lists'}</p>
           </div>
         </Link>
 
