@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { auth } from '../firebase';
+import { auth } from '../../services/firebase';
 import { signOut } from 'firebase/auth';
 
 function Header() {

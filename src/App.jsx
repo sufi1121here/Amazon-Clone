@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { auth } from './firebase';
+import { auth } from './services/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { setUser, logout } from './store/userSlice';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Checkout from './pages/Checkout';
-import Login from './pages/Login';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Home from './pages/Home/Home';
+import Checkout from './pages/Checkout/Checkout';
+import Login from './pages/Login/Login';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +39,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
       </div>

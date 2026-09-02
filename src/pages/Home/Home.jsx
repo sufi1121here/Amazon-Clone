@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductCard from '../components/ProductCard';
-import productsData from '../data/products.json';
-import '../index.css';
+import ProductCard from '../../components/ProductCard/ProductCard';
+import productsData from '../../data/products.json';
+import '../../styles/global.css';
 
 function Home() {
   return (
