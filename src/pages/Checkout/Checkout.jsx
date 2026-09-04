@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateQuantity } from '../../store/cartSlice';
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import './Checkout.css';
 
@@ -17,8 +18,9 @@ function Checkout() {
     dispatch(updateQuantity({ id, quantity: qty }));
   };
 
-  const handleRemove = (id) => {
+  const handleRemoveFromCart = (id) => {
     dispatch(removeFromCart(id));
+    toast.info('Item removed from cart');
   };
 
   const handleProceed = () => {
@@ -74,7 +76,7 @@ function Checkout() {
                     ))}
                   </select>
                   <span className="checkout-action-divider">|</span>
-                  <button onClick={() => handleRemove(item.id)} className="checkout-delete-button">
+                  <button onClick={() => handleRemoveFromCart(item.id)} className="checkout-delete-button">
                     Delete
                   </button>
                 </div>

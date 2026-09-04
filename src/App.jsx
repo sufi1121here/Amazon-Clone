@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { auth } from './services/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { setUser, logout } from './store/userSlice';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
@@ -42,6 +44,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
+        <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={true} />
       </div>
     </Router>
   );

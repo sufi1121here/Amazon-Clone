@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { auth } from '../../services/firebase';
 import { signOut } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 function Header() {
   const cartTotalQuantity = useSelector((state) => state.cart.totalQuantity);
@@ -10,7 +11,9 @@ function Header() {
 
   const handleAuthentication = () => {
     if (user) {
-      signOut(auth);
+      signOut(auth).then(() => {
+        toast.info('Logged out successfully');
+      });
     }
   };
   return (

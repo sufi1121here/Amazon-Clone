@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../services/firebase';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { toast } from 'react-toastify';
 import './Login.css';
 
 function Login() {
@@ -64,6 +65,7 @@ function Login() {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
+        toast.success('Logged in successfully!');
         navigate('/');
       })
       .catch((error) => {
@@ -82,6 +84,7 @@ function Login() {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
+        toast.success('Account created successfully!');
         navigate('/');
       })
       .catch((error) => {

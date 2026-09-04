@@ -1,13 +1,17 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/cartSlice';
+import { toast } from 'react-toastify';
 import './ProductCard.css';
 
 function ProductCard({ id, title, price, image, rating }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ id, title, price, image }));
+    dispatch(addToCart({
+      id, title, price, image, rating
+    }));
+    toast.success('Added to Cart');
   };
 
   return (
