@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, updateQuantity } from '../../store/cartSlice';
+import { removeFromCart, updateQuantity, emptyCart } from '../../store/cartSlice';
+import { db } from '../../services/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import './Checkout.css';
@@ -23,11 +25,32 @@ function Checkout() {
     toast.info('Item removed from cart');
   };
 
-  const handleProceed = () => {
+  const handleProceed = async () => {
     if (!user) {
       navigate('/login');
-    } else {
-      alert('Order placed successfully! Thank you for shopping with us.');
+      return;
+    } 
+    
+    if (cartItems.length === 0) {
+      toast.error('Your cart is empty');
+      return;
+    }
+
+    try {
+      const ordersRef = collection(db, 'users', user.uid, 'orders');
+      await addDoc(ordersRef, {
+        items: cartItems,
+        amount: totalPrice,
+        totalQuantity: totalQuantity,
+        createdAt: serverTimestamp()
+      });
+
+      dispatch(emptyCart());
+      toast.success('Order placed successfully! Check your Orders page.');
+      navigate('/orders');
+    } catch (error) {
+      console.error('Error placing order: ', error);
+      toast.error('Failed to place order. Please try again later.');
     }
   };
 
