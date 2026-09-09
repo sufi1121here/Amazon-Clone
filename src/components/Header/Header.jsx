@@ -48,10 +48,12 @@ function Header() {
           </div>
         </Link>
 
-        <div className="nav-return border">
-          <p><span>Returns</span></p>
-          <p className="nav-sec">& Orders</p>
-        </div>
+        <Link to="/orders" style={{textDecoration: 'none', color: 'inherit'}}>
+          <div className="nav-return border">
+            <p><span>Returns</span></p>
+            <p className="nav-sec">& Orders</p>
+          </div>
+        </Link>
 
         <Link to="/checkout" style={{textDecoration: 'none', color: 'inherit'}}>
           <div className="nav-cart border">

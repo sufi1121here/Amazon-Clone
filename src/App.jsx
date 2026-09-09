@@ -11,6 +11,7 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
 import Checkout from './pages/Checkout/Checkout';
 import Login from './pages/Login/Login';
+import Orders from './pages/Orders/Orders';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/orders" element={<Orders />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
