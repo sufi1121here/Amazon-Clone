@@ -12,6 +12,7 @@ import Home from './pages/Home/Home';
 import Checkout from './pages/Checkout/Checkout';
 import Login from './pages/Login/Login';
 import Orders from './pages/Orders/Orders';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />

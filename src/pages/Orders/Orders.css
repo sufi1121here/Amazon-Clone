@@ -1,0 +1,46 @@
+.orders-page {
+  padding: 20px 80px;
+  background-color: #eaeded;
+  min-height: 80vh;
+}
+
+.orders-page h1 {
+  margin-bottom: 30px;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+}
+
+.orders-empty {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  margin-bottom: 20px;
+}
+
+.orders-shop-btn {
+  background-color: #f0c14b;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.orders-shop-btn:hover {
+  background-color: #f4d078;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .orders-page {
+    padding: 20px;
+  }
+}
