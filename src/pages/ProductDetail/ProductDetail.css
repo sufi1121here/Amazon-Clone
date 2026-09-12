@@ -1,0 +1,153 @@
+.product-detail {
+  background-color: white;
+  min-height: 80vh;
+  padding: 20px 40px;
+}
+
+.product-detail-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.product-detail-left {
+  flex: 0.4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.product-detail-image {
+  width: 100%;
+  max-width: 400px;
+  object-fit: contain;
+}
+
+.product-detail-right {
+  flex: 0.6;
+  padding: 20px 0;
+}
+
+.product-detail-title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-bottom: 8px;
+}
+
+.product-detail-rating {
+  margin-bottom: 15px;
+}
+
+.product-detail-divider {
+  border: 0;
+  height: 1px;
+  background-color: #bbbfbf;
+  margin: 15px 0;
+}
+
+.product-detail-price {
+  color: #b12704;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.price-symbol {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.price-whole {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.price-fraction {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.product-detail-description {
+  margin-top: 20px;
+}
+
+.product-detail-description h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.product-detail-description ul {
+  padding-left: 20px;
+}
+
+.product-detail-description li {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 5px;
+  color: #0f1111;
+}
+
+.product-detail-buybox {
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  position: absolute;
+  right: 40px;
+  background-color: white;
+}
+
+.buybox-price {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #b12704;
+}
+
+.buybox-stock {
+  color: #007600;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.buy-now-btn {
+  background-color: #ffa41c;
+  border: 1px solid;
+  border-color: #ff8f00 #ea8400 #c77000;
+  color: #111;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.buy-now-btn:hover {
+  background-color: #fa9701;
+}
+
+.buybox-secure {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #565959;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+@media screen and (max-width: 900px) {
+  .product-detail-container {
+    flex-direction: column;
+  }
+  .product-detail-buybox {
+    position: relative;
+    right: auto;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
