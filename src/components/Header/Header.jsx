@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { auth } from '../../services/firebase';
 import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import { setSearchTerm, setCategory } from '../../store/searchSlice';
 
 function Header() {
   const cartTotalQuantity = useSelector((state) => state.cart.totalQuantity);
   const user = useSelector((state) => state.user.user);
+  const { searchTerm, category } = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const categories = ['All', 'Gifts', 'Toys', 'Electronics', 'Office', 'Fashion', 'Beauty', 'Grocery'];
 
   const handleAuthentication = () => {
     if (user) {
@@ -32,11 +38,23 @@ function Header() {
         </div>
 
         <div className="nav-search">
-          <select className="srh-select">
-            <option>All</option>
+          <select 
+            className="srh-select" 
+            value={category} 
+            onChange={(e) => dispatch(setCategory(e.target.value))}
+          >
+            {categories.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
           </select>
-          <input placeholder="Search Amazon" className="srh-input" />
-          <div className="srh-icon">
+          <input 
+            placeholder="Search Amazon" 
+            className="srh-input" 
+            value={searchTerm}
+            onChange={(e) => dispatch(setSearchTerm(e.target.value))}
+            onKeyDown={(e) => e.key === 'Enter' && navigate('/')}
+          />
+          <div className="srh-icon" onClick={() => navigate('/')}>
             <i className="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>

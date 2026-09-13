@@ -4,83 +4,95 @@
     "title": "Shop Holiday Gift Guides",
     "price": 29.99,
     "image": "/images/box-img1.jpg",
-    "rating": 5
+    "rating": 5,
+    "category": "Gifts"
   },
   {
     "id": "2",
     "title": "Toys and Games",
     "price": 19.99,
     "image": "/images/box-img2.jpg",
-    "rating": 4
+    "rating": 4,
+    "category": "Toys"
   },
   {
     "id": "3",
     "title": "Deals in PCs",
     "price": 499.99,
     "image": "/images/box-img3.jpg",
-    "rating": 5
+    "rating": 5,
+    "category": "Electronics"
   },
   {
     "id": "4",
     "title": "Upgrade your office furniture",
     "price": 149.99,
     "image": "/images/box-img4.jpg",
-    "rating": 4
+    "rating": 4,
+    "category": "Office"
   },
   {
     "id": "5",
     "title": "Creating Business Solutions",
     "price": 89.99,
     "image": "/images/box-img5.jpg",
-    "rating": 3
+    "rating": 3,
+    "category": "Office"
   },
   {
     "id": "6",
     "title": "Smart Watches",
     "price": 199.99,
     "image": "/images/box-img6.jpg",
-    "rating": 5
+    "rating": 5,
+    "category": "Electronics"
   },
   {
     "id": "7",
     "title": "Deal on Shoes",
     "price": 59.99,
     "image": "/images/box-img7.jpg",
-    "rating": 4
+    "rating": 4,
+    "category": "Fashion"
   },
   {
     "id": "8",
     "title": "Personal Care under $25",
     "price": 24.99,
     "image": "/images/box-img8.jpg",
-    "rating": 4
+    "rating": 4,
+    "category": "Beauty"
   },
   {
     "id": "9",
     "title": "Easter Basket Surprises",
     "price": 14.99,
     "image": "/images/box-img9.jpg",
-    "rating": 5
+    "rating": 5,
+    "category": "Grocery"
   },
   {
     "id": "10",
     "title": "New year, new supplies",
     "price": 34.50,
     "image": "/images/box-img10.jpg",
-    "rating": 4
+    "rating": 4,
+    "category": "Office"
   },
   {
     "id": "11",
     "title": "Women Items",
     "price": 79.99,
     "image": "/images/box-img11.jpg",
-    "rating": 5
+    "rating": 5,
+    "category": "Fashion"
   },
   {
     "id": "12",
     "title": "Lunar New Year",
     "price": 45.00,
     "image": "/images/box-img12.jpg",
-    "rating": 5
+    "rating": 5,
+    "category": "Grocery"
   }
 ]
