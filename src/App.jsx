@@ -13,6 +13,7 @@ import Checkout from './pages/Checkout/Checkout';
 import Login from './pages/Login/Login';
 import Orders from './pages/Orders/Orders';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
+import Payment from './pages/Payment/Payment';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="/login" element={<Login />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/product/:id" element={<ProductDetail />} />
