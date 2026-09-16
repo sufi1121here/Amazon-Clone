@@ -56,7 +56,13 @@ function Payment() {
 
     try {
       const ordersRef = collection(db, 'users', user.uid, 'orders');
-      await addDoc(ordersRef, {
+      
+      // Wrap the addDoc call in a timeout to prevent infinite hanging if Firestore isn't created
+      const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('TIMEOUT')), 5000);
+      });
+      
+      const addDocPromise = addDoc(ordersRef, {
         items: cartItems,
         amount: totalPrice,
         totalQuantity: totalQuantity,
@@ -64,12 +70,18 @@ function Payment() {
         createdAt: serverTimestamp()
       });
 
+      await Promise.race([addDocPromise, timeoutPromise]);
+
       dispatch(emptyCart());
-      toast.success('Order placed successfully! Check your Orders page.');
-      navigate('/orders');
+      toast.success('Order placed successfully!');
+      navigate('/thankyou');
     } catch (error) {
       console.error('Error placing order: ', error);
-      toast.error('Failed to place order. Please try again later.');
+      if (error.message === 'TIMEOUT') {
+        toast.error('Connection timeout: Please ensure you have created a Firestore Database in your Firebase Console.');
+      } else {
+        toast.error('Failed to place order. Please try again later.');
+      }
       setIsProcessing(false);
     }
   };
@@ -167,7 +179,13 @@ function Payment() {
                       placeholder="MM/YY" 
                       maxLength="5"
                       value={card.expiry}
-                      onChange={e => setCard({...card, expiry: e.target.value})}
+                      onChange={e => {
+                        let val = e.target.value.replace(/\D/g, ''); // Remove non-digits
+                        if (val.length >= 3) {
+                          val = val.substring(0, 2) + '/' + val.substring(2, 4);
+                        }
+                        setCard({...card, expiry: val});
+                      }}
                       required
                     />
                     <input 
