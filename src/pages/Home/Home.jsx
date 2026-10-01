@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import productsData from '../../data/products.json';
 import '../../styles/global.css';
 
@@ -15,12 +17,22 @@ function Home() {
 
   return (
     <div className="home">
-      <div className="hero-section">
-        <div className="hero-msg">
-          <p>
-            You are on amazon.com. You can also shop on Amazon Pakistan for millions of products with fast local delivery. <a href="#">Click here to go amazon.pk</a>
-          </p>
-        </div>
+      <div className="home-hero">
+        <Carousel 
+          autoPlay 
+          infiniteLoop 
+          showStatus={false} 
+          showIndicators={false} 
+          showThumbs={false} 
+          interval={5000}
+        >
+          <div><img src="/images/ap1.jpg" alt="hero 1" /></div>
+          <div><img src="/images/ap2.jpg" alt="hero 2" /></div>
+          <div><img src="/images/ap3.jpg" alt="hero 3" /></div>
+          <div><img src="/images/ap4.jpg" alt="hero 4" /></div>
+          <div><img src="/images/ap5.jpg" alt="hero 5" /></div>
+          <div><img src="/images/ap6.jpg" alt="hero 6" /></div>
+        </Carousel>
       </div>
       
       <div className="shop">
