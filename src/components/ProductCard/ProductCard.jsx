@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/cartSlice';
+import { addToWishlist } from '../../store/wishlistSlice';
 import { toast } from 'react-toastify';
 import './ProductCard.css';
 
@@ -13,6 +14,13 @@ function ProductCard({ id, title, price, image, rating }) {
       id, title, price, image, rating
     }));
     toast.success('Added to Cart');
+  };
+
+  const handleAddToWishlist = () => {
+    dispatch(addToWishlist({
+      id, title, price, image, rating
+    }));
+    toast.info('Added to Wishlist ❤️');
   };
 
   return (
@@ -28,9 +36,18 @@ function ProductCard({ id, title, price, image, rating }) {
             <span key={i}>⭐</span>
           ))}
         </div>
-        <button className="add-to-cart-btn" onClick={handleAddToCart}>
-          Add to Cart
-        </button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '10px' }}>
+          <button className="add-to-cart-btn" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
+          <button 
+            className="add-to-cart-btn" 
+            onClick={handleAddToWishlist}
+            style={{ backgroundColor: '#e7e9ec', borderColor: '#adb1b8 #a2a6ac #8d9096', color: '#111' }}
+          >
+            Add to Wishlist
+          </button>
+        </div>
       </div>
     </div>
   );

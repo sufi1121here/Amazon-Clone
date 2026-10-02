@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/cartSlice';
+import { addToWishlist } from '../../store/wishlistSlice';
 import { toast } from 'react-toastify';
 import productsData from '../../data/products.json';
 import './ProductDetail.css';
@@ -34,6 +35,19 @@ function ProductDetail() {
         rating: product.rating
       }));
       toast.success('Added to Cart');
+    }
+  };
+
+  const handleAddToWishlist = () => {
+    if (product) {
+      dispatch(addToWishlist({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        rating: product.rating
+      }));
+      toast.info('Added to Wishlist ❤️');
     }
   };
 
@@ -82,6 +96,14 @@ function ProductDetail() {
             </button>
             <button className="buy-now-btn" onClick={() => { handleAddToCart(); navigate('/checkout'); }}>
               Buy Now
+            </button>
+            <hr style={{margin: '10px 0', borderTop: '1px solid #ddd'}} />
+            <button 
+              className="add-to-cart-btn" 
+              onClick={handleAddToWishlist}
+              style={{ backgroundColor: '#e7e9ec', borderColor: '#adb1b8 #a2a6ac #8d9096', color: '#111' }}
+            >
+              Add to Wishlist
             </button>
             <div className="buybox-secure">
               <i className="fa-solid fa-lock"></i> Secure transaction

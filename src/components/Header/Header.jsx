@@ -8,6 +8,7 @@ import { setSearchTerm, setCategory } from '../../store/searchSlice';
 
 function Header() {
   const cartTotalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const wishlistTotalQuantity = useSelector((state) => state.wishlist.totalItems);
   const user = useSelector((state) => state.user.user);
   const { searchTerm, category } = useSelector((state) => state.search);
   const dispatch = useDispatch();
@@ -70,6 +71,13 @@ function Header() {
           <div className="nav-return border">
             <p><span>Returns</span></p>
             <p className="nav-sec">& Orders</p>
+          </div>
+        </Link>
+
+        <Link to="/wishlist" style={{textDecoration: 'none', color: 'inherit'}}>
+          <div className="nav-return border">
+            <p><span>Your</span></p>
+            <p className="nav-sec">Wishlist <span style={{color: '#f08804', fontWeight: 'bold'}}>{wishlistTotalQuantity}</span></p>
           </div>
         </Link>
 
