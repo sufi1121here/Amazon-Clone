@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { auth } from '../../services/firebase';
 import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { setSearchTerm, setCategory } from '../../store/searchSlice';
+import Sidebar from '../Sidebar/Sidebar';
 
 function Header() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const cartTotalQuantity = useSelector((state) => state.cart.totalQuantity);
   const wishlistTotalQuantity = useSelector((state) => state.wishlist.totalItems);
   const user = useSelector((state) => state.user.user);
@@ -90,7 +93,7 @@ function Header() {
       </div>
 
       <div className="panel">
-        <div className="panel-all">
+        <div className="panel-all" onClick={() => setIsSidebarOpen(true)} style={{cursor: 'pointer'}}>
           <i className="fa-solid fa-bars"></i>
           All
         </div>
@@ -105,6 +108,8 @@ function Header() {
           Shop deals in Electronics
         </div>
       </div>
+
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
     </header>
   );
 }

@@ -1,0 +1,121 @@
+/* The dark semi-transparent background */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar-close-btn {
+  position: absolute;
+  top: 20px;
+  left: 380px; /* Right next to the sidebar */
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* The actual sliding drawer */
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: -400px; /* Hidden off-screen initially */
+  width: 365px;
+  height: 100vh;
+  background-color: white;
+  z-index: 999;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.5);
+  transition: left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-container.show {
+  left: 0; /* Slide in */
+}
+
+/* Header with Hello, User */
+.sidebar-header {
+  background-color: #232f3e;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.sidebar-user-icon {
+  font-size: 28px;
+}
+
+.sidebar-header h3 {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Scrollable Links Area */
+.sidebar-content {
+  overflow-y: auto;
+  flex: 1;
+  padding: 10px 0;
+}
+
+.sidebar-section {
+  padding: 10px 0;
+}
+
+.sidebar-section h4 {
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.sidebar-section p {
+  padding: 13px 30px;
+  font-size: 14px;
+  color: #111;
+  margin: 0;
+  cursor: pointer;
+}
+
+.sidebar-section p:hover {
+  background-color: #eaeded;
+}
+
+.sidebar-section a {
+  text-decoration: none;
+}
+
+.sidebar-clickable {
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #d5d9d9;
+  margin: 5px 0;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 450px) {
+  .sidebar-container {
+    width: 85vw;
+  }
+  .sidebar-close-btn {
+    left: 88vw;
+  }
+}
