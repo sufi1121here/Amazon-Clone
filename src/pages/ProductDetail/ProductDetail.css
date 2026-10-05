@@ -151,3 +151,137 @@
     margin-top: 20px;
   }
 }
+
+/* Reviews Section Styles */
+.product-reviews-section {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+}
+
+.reviews-divider {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin-bottom: 30px;
+}
+
+.product-reviews-section h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.reviews-container {
+  display: flex;
+  gap: 40px;
+}
+
+.reviews-left {
+  flex: 0.3;
+}
+
+.reviews-right {
+  flex: 0.7;
+}
+
+.reviews-left h3, .reviews-right h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.review-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rating-select label, .review-input label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.rating-select select, .review-input textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #888C8C;
+  border-radius: 3px;
+}
+
+.review-input textarea {
+  resize: vertical;
+}
+
+.submit-review-btn {
+  background-color: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+}
+
+.submit-review-btn:hover {
+  background-color: #f7ca00;
+}
+
+.write-review-btn {
+  margin-top: 15px;
+  background-color: #e7e9ec;
+  border: 1px solid #adb1b8;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.no-reviews {
+  color: #565959;
+  font-style: italic;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.review-item {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.review-author i {
+  color: #c7c7c7;
+  font-size: 24px;
+}
+
+.review-author span {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.review-date {
+  color: #565959;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .reviews-container {
+    flex-direction: column;
+  }
+}
