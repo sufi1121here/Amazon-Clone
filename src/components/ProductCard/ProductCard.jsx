@@ -25,29 +25,36 @@ function ProductCard({ id, title, price, image, rating }) {
 
   return (
     <div className="product-card box">
-      <div className="box-content">
-        <Link to={`/product/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-          <h2 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>{title}</h2>
-          <div className="box-img" style={{ backgroundImage: `url(${image})` }}></div>
-        </Link>
-        <p className="product-price">${price.toFixed(2)}</p>
+      <Link to={`/product/${id}`} className="pc-link">
+        <div className="pc-image-container">
+          <img src={image} alt={title} className="pc-image" />
+        </div>
+        <h2 className="pc-title">{title}</h2>
+      </Link>
+
+      <div className="pc-info">
         <div className="product-rating">
           {Array(rating).fill().map((_, i) => (
             <span key={i}>⭐</span>
           ))}
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '10px' }}>
-          <button className="add-to-cart-btn" onClick={handleAddToCart}>
-            Add to Cart
-          </button>
-          <button 
-            className="add-to-cart-btn" 
-            onClick={handleAddToWishlist}
-            style={{ backgroundColor: '#e7e9ec', borderColor: '#adb1b8 #a2a6ac #8d9096', color: '#111' }}
-          >
-            Add to Wishlist
-          </button>
-        </div>
+        <p className="product-price">
+          <span className="pc-currency">$</span>
+          <span className="pc-whole">{Math.floor(price)}</span>
+          <span className="pc-fraction">{(price % 1).toFixed(2).substring(2)}</span>
+        </p>
+      </div>
+
+      <div className="pc-actions">
+        <button className="add-to-cart-btn" onClick={handleAddToCart}>
+          Add to Cart
+        </button>
+        <button
+          className="add-to-wishlist-btn"
+          onClick={handleAddToWishlist}
+        >
+          Add to Wishlist
+        </button>
       </div>
     </div>
   );
