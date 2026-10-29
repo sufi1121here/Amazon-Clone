@@ -16,6 +16,7 @@ import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Payment from './pages/Payment/Payment';
 import ThankYou from './pages/ThankYou/ThankYou';
 import Wishlist from './pages/Wishlist/Wishlist';
+import Sell from './pages/Sell/Sell';
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/login" element={<Login />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/sell" element={<Sell />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { auth } from '../../services/firebase';
 import { signOut } from 'firebase/auth';
@@ -16,6 +16,7 @@ function Header() {
   const { searchTerm, category } = useSelector((state) => state.search);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const categories = ['All', 'Gifts', 'Toys', 'Electronics', 'Office', 'Fashion', 'Beauty', 'Grocery'];
 
@@ -26,6 +27,13 @@ function Header() {
       });
     }
   };
+
+  const handleCategoryClick = (catName) => {
+    dispatch(setCategory(catName));
+    dispatch(setSearchTerm(''));
+    navigate('/');
+  };
+
   return (
     <header>
       <div className="navbar">
@@ -93,18 +101,25 @@ function Header() {
       </div>
 
       <div className="panel">
-        <div className="panel-all" onClick={() => setIsSidebarOpen(true)} style={{cursor: 'pointer'}}>
+        <div className="panel-all" onClick={() => setIsSidebarOpen(true)}>
           <i className="fa-solid fa-bars"></i>
           All
         </div>
+
         <div className="panel-ops">
-          <p>Today's Deal</p>
-          <p>Customer Service</p>
-          <p>Registry</p>
-          <p>Gift Cards</p>
-          <p>Sell</p>
+          <p onClick={() => handleCategoryClick('All')}>Today's Deal</p>
+          <p onClick={() => handleCategoryClick('All')}>Customer Service</p>
+          <p onClick={() => handleCategoryClick('Gifts')}>Registry</p>
+          <p onClick={() => handleCategoryClick('Gifts')}>Gift Cards</p>
+          <p 
+            onClick={() => navigate('/sell')} 
+            className={location.pathname === '/sell' ? 'active' : ''}
+          >
+            Sell
+          </p>
         </div>
-        <div className="panel-deals">
+
+        <div className="panel-deals" onClick={() => handleCategoryClick('Electronics')}>
           Shop deals in Electronics
         </div>
       </div>

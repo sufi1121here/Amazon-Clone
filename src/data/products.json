@@ -94,5 +94,101 @@
     "image": "/images/box-img12.jpg",
     "rating": 5,
     "category": "Grocery"
+  },
+  {
+    "id": "13",
+    "title": "Wireless Noise-Canceling Over-Ear Headphones",
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
+    "rating": 5,
+    "category": "Electronics"
+  },
+  {
+    "id": "14",
+    "title": "RGB Mechanical Gaming Keyboard with Wrist Rest",
+    "price": 69.99,
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&q=80",
+    "rating": 5,
+    "category": "Electronics"
+  },
+  {
+    "id": "15",
+    "title": "Ultra HD 4K Waterproof Action Camera",
+    "price": 129.99,
+    "image": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&q=80",
+    "rating": 4,
+    "category": "Electronics"
+  },
+  {
+    "id": "16",
+    "title": "Classic Minimalist Leather Strap Watch",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80",
+    "rating": 5,
+    "category": "Fashion"
+  },
+  {
+    "id": "17",
+    "title": "Polarized Retro Round Frame Sunglasses",
+    "price": 22.99,
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&q=80",
+    "rating": 4,
+    "category": "Fashion"
+  },
+  {
+    "id": "18",
+    "title": "Durable Water-Resistant Canvas Travel Backpack",
+    "price": 39.99,
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80",
+    "rating": 5,
+    "category": "Fashion"
+  },
+  {
+    "id": "19",
+    "title": "Organic Vitamin C Hydrating Face Serum",
+    "price": 18.50,
+    "image": "https://images.unsplash.com/photo-1608248597359-59754f9a4fa1?w=500&q=80",
+    "rating": 5,
+    "category": "Beauty"
+  },
+  {
+    "id": "20",
+    "title": "Luxury Soy Wax Aromatherapy Scented Candle",
+    "price": 26.00,
+    "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=500&q=80",
+    "rating": 4,
+    "category": "Beauty"
+  },
+  {
+    "id": "21",
+    "title": "Remote Control High-Speed Off-Road Monster Truck",
+    "price": 35.99,
+    "image": "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=500&q=80",
+    "rating": 5,
+    "category": "Toys"
+  },
+  {
+    "id": "22",
+    "title": "Natural Wooden Educational Stacking & Building Blocks",
+    "price": 28.00,
+    "image": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=500&q=80",
+    "rating": 4,
+    "category": "Toys"
+  },
+  {
+    "id": "23",
+    "title": "Smart Insulated Stainless Steel Water Bottle with LED Display",
+    "price": 21.99,
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&q=80",
+    "rating": 5,
+    "category": "Gifts"
+  },
+  {
+    "id": "24",
+    "title": "Artisan Whole Roasted Espresso Coffee Beans (1kg)",
+    "price": 16.99,
+    "image": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&q=80",
+    "rating": 5,
+    "category": "Grocery"
   }
 ]
