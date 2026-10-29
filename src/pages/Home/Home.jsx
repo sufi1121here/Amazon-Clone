@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import productsData from '../../data/products.json';
 import '../../styles/global.css';
 
 function Home() {
   const { searchTerm, category } = useSelector((state) => state.search);
+  const productsData = useSelector((state) => state.products.items);
 
   const filteredProducts = productsData.filter((product) => {
     const matchesCategory = category === 'All' || product.category === category;
@@ -49,6 +49,8 @@ function Home() {
               price={product.price}
               image={product.image}
               rating={product.rating}
+              discount={product.discount}
+              isPrime={product.isPrime}
             />
           ))
         )}

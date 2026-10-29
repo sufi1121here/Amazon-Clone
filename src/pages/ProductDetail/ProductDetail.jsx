@@ -6,7 +6,6 @@ import { addToWishlist } from '../../store/wishlistSlice';
 import { toast } from 'react-toastify';
 import { db } from '../../services/firebase';
 import { collection, addDoc, query, where, getDocs, orderBy } from 'firebase/firestore';
-import productsData from '../../data/products.json';
 import './ProductDetail.css';
 
 function ProductDetail() {
@@ -14,6 +13,7 @@ function ProductDetail() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
+  const productsData = useSelector(state => state.products.items);
   
   const [product, setProduct] = useState(null);
   const [reviews, setReviews] = useState([]);
@@ -22,7 +22,7 @@ function ProductDetail() {
 
   useEffect(() => {
     // Find the product by ID
-    const foundProduct = productsData.find(p => p.id === id);
+    const foundProduct = productsData.find(p => String(p.id) === String(id));
     if (foundProduct) {
       setProduct(foundProduct);
       fetchReviews(id);
@@ -31,7 +31,7 @@ function ProductDetail() {
       toast.error('Product not found!');
       navigate('/');
     }
-  }, [id, navigate]);
+  }, [id, navigate, productsData]);
 
   const fetchReviews = async (productId) => {
     try {
@@ -132,21 +132,43 @@ function ProductDetail() {
           <hr className="product-detail-divider" />
           
           <div className="product-detail-price">
+            {product.discount > 0 && (
+              <span style={{ color: '#CC0C39', fontSize: '1.4rem', fontWeight: '400', marginRight: '8px' }}>
+                -{product.discount}%
+              </span>
+            )}
             <span className="price-symbol">$</span>
             <span className="price-whole">{Math.floor(product.price)}</span>
             <span className="price-fraction">
               {(product.price % 1).toFixed(2).substring(2)}
             </span>
+            {product.originalPrice && product.originalPrice > product.price && (
+              <span style={{ fontSize: '0.85rem', color: '#565959', textDecoration: 'line-through', marginLeft: '10px' }}>
+                List: ${Number(product.originalPrice).toFixed(2)}
+              </span>
+            )}
           </div>
           
           <div className="product-detail-description">
             <h3>About this item</h3>
             <ul>
-              <li>High-quality materials ensure durability and long-lasting use.</li>
-              <li>Perfect for everyday needs and built to exceed expectations.</li>
-              <li>Sleek design fits beautifully in any modern environment.</li>
-              <li>Includes standard Amazon Clone warranty for your peace of mind.</li>
+              {product.features && product.features.length > 0 ? (
+                product.features.map((feature, idx) => <li key={idx}>{feature}</li>)
+              ) : (
+                <>
+                  <li>High-quality materials ensure durability and long-lasting use.</li>
+                  <li>Perfect for everyday needs and built to exceed expectations.</li>
+                  <li>Sleek design fits beautifully in any modern environment.</li>
+                  <li>Includes standard Amazon Clone warranty for your peace of mind.</li>
+                </>
+              )}
             </ul>
+            {product.description && (
+              <div style={{ marginTop: '15px', color: '#333', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                <h4 style={{ marginBottom: '6px' }}>Product Description</h4>
+                <p>{product.description}</p>
+              </div>
+            )}
           </div>
           
           <div className="product-detail-buybox">
