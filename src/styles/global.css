@@ -143,26 +143,79 @@ span{
     display: flex;
     color: white;
     align-items: center;
-    justify-content: space-evenly;
+    padding: 0 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+.panel::-webkit-scrollbar {
+    display: none;
 }
 
-.panel-ops p{
-    display: inline;
-    margin: 15px;
-    /* border: 1.5 solid white; */
-}
-.panel-ops p:hover{
-    cursor: pointer;
-    text-decoration: underline;
-}
-.panel-ops{
-    width: 70%;
-    font-size: 0.85rem;
-}
-
-.panel-deals{
-    font-size: 0.85;
+.panel-all {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-weight: 700;
+    font-size: 0.85rem;
+    padding: 5px 8px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.panel-all:hover {
+    border-color: white;
+}
+
+.panel-ops {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.panel-ops p {
+    padding: 5px 8px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    white-space: nowrap;
+    margin: 0;
+}
+.panel-ops p:hover {
+    border-color: white;
+    text-decoration: none;
+}
+
+.panel-deals {
+    margin-left: auto;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+.panel-deals:hover {
+    border-color: white;
+}
+
+.panel-ops p.active,
+.panel-all.active,
+.panel-deals.active {
+    border-color: #febd68;
+    color: #febd68;
+}
+
+@media (max-width: 850px) {
+    .panel-deals {
+        display: none;
+    }
 }
 
 /* Hero Section */
