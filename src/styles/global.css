@@ -252,6 +252,125 @@ span{
 
 
 
+/* Home Filter & Sort Bar */
+.home-filter-bar {
+    position: relative;
+    z-index: 5;
+    background-color: white;
+    margin: -30px 20px 15px 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #d5d9d9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filter-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: #565959;
+}
+
+.results-count strong {
+    color: #0F1111;
+}
+
+.active-filter-pill {
+    background-color: #f0f2f2;
+    border: 1px solid #d5d9d9;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #0F1111;
+}
+
+.active-filter-pill.prime-pill {
+    background-color: #e7f4fa;
+    border-color: #00a8e1;
+    color: #007185;
+    font-weight: 700;
+}
+
+.filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.prime-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+}
+
+.prime-toggle-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #007185;
+}
+
+.prime-text {
+    color: #00a8e1;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.sort-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #565959;
+}
+
+.sort-box label {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.home-sort-select {
+    background-color: #f0f2f2;
+    border: 1px solid #d5d9d9;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    color: #0F1111;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 1px 3px rgba(15, 17, 17, 0.08);
+    transition: all 0.2s;
+}
+
+.home-sort-select:hover,
+.home-sort-select:focus {
+    background-color: #e3e6e6;
+    border-color: #007185;
+}
+
+@media (max-width: 768px) {
+    .home-filter-bar {
+        margin: -10px 10px 15px 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filter-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
 /* Shop SEC */
 .shop{
     display: flex;
