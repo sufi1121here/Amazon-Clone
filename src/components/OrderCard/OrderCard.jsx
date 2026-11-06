@@ -30,6 +30,24 @@ function OrderCard({ order }) {
       year: 'numeric'
     });
     orderMillis = dateObj.getTime();
+  } else if (typeof orderData.createdAt === 'number') {
+    const dateObj = new Date(orderData.createdAt);
+    orderDate = dateObj.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    });
+    orderMillis = dateObj.getTime();
+  } else if (typeof orderData.createdAt === 'string') {
+    const dateObj = new Date(orderData.createdAt);
+    if (!isNaN(dateObj.getTime())) {
+      orderDate = dateObj.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+      orderMillis = dateObj.getTime();
+    }
   }
 
   // Calculate dynamic delivery status based on time elapsed
